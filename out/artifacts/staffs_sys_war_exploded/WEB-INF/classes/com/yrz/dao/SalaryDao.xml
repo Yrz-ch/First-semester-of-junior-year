@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrz.dao.SalaryDao">
+
+
+
+
+
+
+
+
+
+
+
+    <select id="querySalaryById" resultType="Salary">
+      SELECT * from Staff_sys.salary
+      where eid = #{eid}
+   </select>
+
+</mapper>

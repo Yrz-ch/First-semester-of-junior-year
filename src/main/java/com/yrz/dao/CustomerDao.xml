@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrz.dao.CustomerDao">
+
+    <!--增加一个Book-->
+    <insert id="addCustomer" parameterType="Customers">
+      insert into Staff_sys.customer(cid,cname,unit1,unit2,phone,qq,email)
+      values (#{cid},#{cname},#{unit1},#{unit2},#{phone},#{qq},#{email})
+   </insert>
+
+    <!--根据id删除一个Book-->
+    <delete id="deleteCustomerById" parameterType="int">
+      delete from Staff_sys.customer where cid=#{cid}
+   </delete>
+
+    <!--更新Book-->
+    <update id="updateCustomer" parameterType="Customers">
+      update Staff_sys.customer
+      set cname = #{cname},unit1 = #{unit1},unit2=#{unit2},phone=#{phone},qq=#{qq},email=#{email}
+      where cid = #{cid}
+   </update>
+
+    <!--根据id查询,返回一个Book-->
+    <select id="queryCustomerById" resultType="Customers">
+      select * from Staff_sys.customer
+      where cid = #{cid}
+   </select>
+
+    <!--查询全部Book-->
+    <select id="queryAllCustomer" resultType="Customers">
+      SELECT * from Staff_sys.customer
+   </select>
+
+    <select id="queryCustomerByName" resultType="Customers">
+      SELECT * from Staff_sys.customer
+      where cname = #{cname}
+   </select>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描service相关的bean -->
+    <context:component-scan base-package="com.yrz.service" />
+
+    <!--BookServiceImpl注入到IOC容器中-->
+    <bean id="bookServiceImpl" class="com.yrz.service.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+    <bean id="staffServiceImpl" class="com.yrz.service.StaffServiceImpl">
+        <property name="staffDao" ref="staffDao"/>
+    </bean>
+    <bean id="userServiceImpl" class="com.yrz.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="customerServiceImpl" class="com.yrz.service.CustomerImpl">
+        <property name="customerDao" ref="customerDao"/>
+    </bean>
+    <bean id="proCompServiceImpl" class="com.yrz.service.ProCompServiceImpl">
+        <property name="proCompDao" ref="proCompDao"/>
+    </bean>
+    <bean id="salaryServiceImpl" class="com.yrz.service.SalaryServiceImpl">
+        <property name="salaryDao" ref="salaryDao"/>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+</beans>

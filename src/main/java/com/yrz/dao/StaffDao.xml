@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrz.dao.StaffDao">
+
+    <!--增加一个Book-->
+    <insert id="addStaff" parameterType="Staffs">
+      insert into Staff_sys.employee(eid,ename,power)
+      values (#{eid},#{ename}, #{power})
+   </insert>
+
+    <!--根据id删除一个Book-->
+    <delete id="deleteStaffById" parameterType="int">
+      delete from Staff_sys.employee where eid=#{eid}
+   </delete>
+
+    <!--更新Book-->
+    <update id="updateStaff" parameterType="Staffs">
+      update Staff_sys.employee
+      set ename = #{ename},power = #{power}
+      where eid = #{eid}
+   </update>
+
+    <!--根据id查询,返回一个Book-->
+    <select id="queryStaffById" resultType="Staffs">
+      select * from Staff_sys.employee
+      where eid = #{eid}
+   </select>
+
+    <!--查询全部Book-->
+    <select id="queryAllStaff" resultType="Staffs">
+      SELECT * from Staff_sys.employee
+   </select>
+
+    <select id="queryStaffByName" resultType="Staffs">
+      SELECT * from Staff_sys.employee
+      where ename = #{ename}
+   </select>
+
+</mapper>

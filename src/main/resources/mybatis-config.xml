@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <typeAliases>
+        <package name="com.yrz.pojo"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/yrz/dao/BookDao.xml"/>
+        <mapper resource="com/yrz/dao/StaffDao.xml"/>
+        <mapper resource="com/yrz/dao/UserDao.xml"/>
+        <mapper resource="com/yrz/dao/CustomerDao.xml"/>
+        <mapper resource="com/yrz/dao/ProCompDao.xml"/>
+        <mapper resource="com/yrz/dao/SalaryDao.xml"/>
+
+
+    </mappers>
+</configuration>

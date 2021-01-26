@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrz.dao.ProCompDao">
+
+    <!--增加一个Book-->
+    <insert id="addProComp" parameterType="ProComp">
+      insert into Staff_sys.project_manage(eid,pid,complete,price)
+      values (#{eid}, #{pid}, #{complete},#{price})
+   </insert>
+
+
+
+
+
+    <!--根据id查询,返回一个Book-->
+    <select id="queryProCompById2" resultType="ProComp">
+      select * from Staff_sys.project_manage
+      where eid = #{eid} AND pid = #{pid}
+   </select>
+
+    <!--查询全部Book-->
+    <select id="queryAllProComp" resultType="Books">
+      SELECT * from Staff_sys.project_manage
+   </select>
+
+    <select id="queryProCompById" resultType="ProComp">
+      SELECT * from Staff_sys.project_manage
+      where eid = #{eid}
+   </select>
+
+</mapper>
